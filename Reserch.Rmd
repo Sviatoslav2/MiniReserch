@@ -1,0 +1,46 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+data_examiner_A_written <- c(87.75, 84.25, 81, 80.25, 77.75, 76.75, 75.25, 74.75, 72, 69.25, 67.75, 67.5, 65.75, 64.25, 57,56.25,55.5, 53.75, 52.75, 50, 47.75, 46.75, 45.75, 45.75, 42.75,42,34.5, 28, 17.25,13,9)
+data_examiner_A_oral <-   c(92, 98, 95, 84, 92, 95, 90, 93, 78, 91, 91, 93, 80, 91, 87, 87, 83, 70, 73, 81, 75, 63, 80, 68, 62, 77, 57, 57, 38, 48, 32)
+
+data_examiner_B_written <- c(85.75, 71, 68, 67.75, 62.25, 60, 53.75, 51.75, 49.75, 45.5, 34, 33, 24.25, 21.75)
+data_examiner_B_oral <- c(90, 82.5, 89, 82.5, 75, 85, 72.5, 75.8, 62.5, 70, 60, 52.5, 60, 50)
+zk_w = c()
+zk_r = c()
+
+plot(data_examiner_B_oral, pch=17, col="blue")#it looks like grades of red examiner are smaller 
+points(data_examiner_B_written, pch=17, col="red")
+
+k1 <- -1
+for(i in data_examiner_A_written){
+    k+=1
+    zk_w[k1] = abs(i - data_examiner_A_oral[k1]) 
+    
+}
+
+
+k2 <- -1
+for(i in data_examiner_A_written){
+    k+=1
+    zk_w[k2] = abs(i - data_examiner_A_oral[k2]) 
+    
+}
+
+plot(zk_r, pch=16, col="blue")#difference between writing and oral parts looks very similar
+points(zk_w, pch=16, col="red")
+t.test(zk_w, zk_r, alternative = "g")
+#p-value is bigger than 0.05, so red examinator is unbiased
+
+```{r}
+plot(cars)
+```
